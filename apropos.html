@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>À propos - Swipit</title>
+    <!-- Font Satoshi -->
+    <link href="https://fonts.googleapis.com/css2?family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Satoshi', sans-serif;
+            background-color: #f8f8f8;
+            color: #000;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background-color: #f8f8f8;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.95em;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .contact-link:hover {
+            border-color: #47B5FF;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            flex: 1;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .content {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            gap: 40px;
+        }
+
+        .photo-section {
+            flex: 1;
+        }
+
+        .photo-section img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-section h1 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            animation: slideIn 1.2s ease forwards;
+            font-weight: 500;
+        }
+
+        .intro p {
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            text-align: justify;
+            animation: fadeInText 1.4s ease forwards;
+            line-height: 1.6;
+        }
+
+        .valeurs {
+            margin-top: 25px;
+            animation: fadeInText 1.6s ease forwards;
+        }
+
+        .valeurs h2 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .valeurs ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .valeurs li {
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .footer-global {
+            text-align: center;
+            padding: 1rem 0;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-30px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .photo-section img {
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="index.html">
+            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo">
+        </a>
+        <a href="contact.html" class="contact-link">Contact</a>
+    </div>
+
+    <div class="container">
+        <div class="content">
+            <div class="photo-section">
+                <img src="images/oceane.jpg" alt="Océane Magnière - Swipit">
+            </div>
+
+            <div class="text-section">
+                <h1>À propos</h1>
+                <div class="intro">
+                    <p>
+                        Fondatrice de <strong>Swipit</strong>, Océane Magnière conçoit des contenus visuels qui subliment l’univers des marques avec précision, sens et esthétisme.
+                    </p>
+
+                    <p>
+                        Formée en <em>marketing digital et innovation</em>, son parcours en agence spécialisée dans les campagnes TikTok lui a permis de développer une expertise en <strong>création de vidéos</strong>, à destination de marques nationales et internationales.
+                    </p>
+
+                    <p>
+                        Aujourd’hui, cette approche créative et cette exigence visuelle sont mises au service de projets <strong>mode, presse, luxe</strong>, ainsi que de tout acteur souhaitant valoriser son image à travers un contenu <strong>élégant, différenciant et impactant</strong>.
+                    </p>
+                </div>
+
+                <div class="valeurs">
+                    <h2>Nos valeurs</h2>
+                    <ul>
+                        <li>Créativité – Explorer, imaginer, sublimer</li>
+                        <li>Impact – Chaque visuel doit captiver</li>
+                        <li>Authenticité – Faire vivre l’essence de la marque</li>
+                        <li>Élégance – Du concept au rendu final</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer-global">
+        © 2025 Swipit — Tous droits réservés
+    </footer>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Swipit - Choix des projets</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8; /* Blanc cassé */
+            color: #000;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .header-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .card {
+            background-color: #f8f8f8;
+            padding: 40px 60px;
+            border: 1px solid #000; /* Bordure noire visible */
+            border-radius: 0; /* PAS arrondi */
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #000;
+        }
+
+        .card:hover {
+            border-color: #47B5FF;
+            transform: scale(1.05);
+            color: #47B5FF;
+        }
+
+        .footer-global {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo noir fixe en haut à gauche -->
+    <div class="header-fixed">
+        <a href="index.html">
+            <img src="images/swipitnoir.png" alt="Logo Swipit Noir" class="logo">
+        </a>
+    </div>
+
+    <!-- Tes cartes carrées avec bordure noire -->
+    <div class="container">
+        <a href="photos.html" class="card">Photos</a>
+        <a href="videos.html" class="card">Vidéos</a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
+
+</body>
+</html>

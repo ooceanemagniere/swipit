@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Océane Magnière - Swipit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Préloader */
+        #preloader {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            transition: opacity 0.6s ease;
+        }
+
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .preloader-logo {
+            width: 120px;
+            height: auto;
+            opacity: 0;
+            animation: fadeInLogo 1.2s ease forwards;
+        }
+
+        @keyframes fadeInLogo {
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomOutLogo {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .preloader-logo.zoom-out {
+            animation: zoomOutLogo 0.6s ease forwards;
+        }
+
+        .hero {
+            background-image: url('images/fond.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .hero-content {
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.3em;
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 2em;
+            font-style: italic;
+        }
+
+        .logo {
+            height: 60px;
+            cursor: pointer;
+            margin-bottom: 1em;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 1em;
+        }
+
+        .btn {
+            padding: 0.8em 1.5em;
+            border: 1px solid #fff;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            display: inline-block;
+            cursor: pointer;
+            text-align: center;
+            width: 140px;
+        }
+
+        .btn:hover {
+            border-color: #47B5FF;
+            color: #47B5FF;
+            transform: scale(1.05);
+        }
+
+        .contacts {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            z-index: 2;
+            font-size: 0.9em;
+        }
+
+        .footer-global {
+            margin-top: auto;
+            text-align: center;
+            padding: 1rem 0;
+            background-color: black;
+            color: #ccc;
+        }
+
+        .top-right-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-right-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95em;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .top-right-links a:hover {
+            border-color: #47B5FF;
+        }
+    </style>
+</head>
+<body>
+    <!-- Préloader -->
+    <div id="preloader">
+        <img src="images/swipit_blanc.png" alt="Logo Swipit" class="preloader-logo">
+    </div>
+
+    <div class="hero">
+        <div class="overlay"></div>
+        
+        <div class="top-right-links">
+            <a href="apropos.html">En savoir plus</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="hero-content">
+            <h1>Océane Magnière</h1>
+            <img src="images/swipit_blanc.png" alt="Logo Swipit" class="logo">
+            <p>Mode. Design. Attitude.</p>
+
+            <div class="button-container">
+                <a href="photos.html" class="btn">Photos</a>
+                <a href="videos.html" class="btn">Vidéos</a>
+            </div>
+        </div>
+
+        <div class="contacts">
+            <p>contact@swipit.fr | 07 81 20 74 49</p>
+        </div>
+    </div>
+
+    <footer class="footer-global">
+        © 2025 Swipit — Tous droits réservés
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const preloaderShown = sessionStorage.getItem('preloaderShown');
+            
+            if (!preloaderShown) {
+                sessionStorage.setItem('preloaderShown', 'true');
+                const preloader = document.getElementById('preloader');
+                const logo = document.querySelector('.preloader-logo');
+                
+                setTimeout(() => {
+                    logo.classList.add('zoom-out');
+                }, 1200);
+
+                setTimeout(() => {
+                    preloader.classList.add('fade-out');
+                }, 1800);
+            } else {
+                document.getElementById('preloader').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

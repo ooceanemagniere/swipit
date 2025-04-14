@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Lunettes de Mathilde - Galerie Vidéos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8; /* Fond clair */
+            color: #000; /* Texte noir */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        header h1, header h2 {
+            margin: 0;
+            text-align: center;
+        }
+
+        header {
+            padding-top: 80px;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: 400;
+        }
+
+        h2 {
+            font-weight: normal;
+            font-size: 1.5em;
+            color: #444;
+            margin-top: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+            gap: 20px;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .project {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .project video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+        .project iframe {
+            width: 100%;
+            height: 535px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .video-title {
+            margin-top: 8px;
+            font-size: 0.9em;
+            color: #333;
+            font-style: italic;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-global {
+            margin-top: auto;
+            text-align: center;
+            padding: 1rem 0;
+            color: #777;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #47B5FF;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html">
+            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo">
+        </a>
+    </div>
+
+    <header>
+        <h1>Les Lunettes de Mathilde</h1>
+        <h2>Galerie Vidéos</h2>
+    </header>
+
+    <a href="videos.html" class="back-link">Retour aux projets</a>
+
+    <section class="grid">
+        <div class="project">
+            <video controls src="videos/jeu.mp4"></video>
+            <div class="video-title">Jeu Concours | RayBan Meta</div>
+        </div>
+        <div class="project">
+            <iframe src="https://www.youtube.com/embed/ANA4wIpa5qk" title="V1 Saint Valentin Mathilde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-title">Saint Valentin</div>
+        </div>
+        <div class="project">
+            <video controls src="videos/monture.mp4"></video>
+            <div class="video-title">Coulisses</div>
+        </div>
+        <!-- Ajoute d'autres vidéos si besoin -->
+    </section>
+
+    <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
+
+</body>
+</html>

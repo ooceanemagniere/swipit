@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Océane Magnière - Swipit</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8; /* fond blanc cassé */
+            color: #000; /* texte noir */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px 20px;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        h2 {
+            margin: 10px 0 0;
+            font-weight: normal;
+            font-size: 1.5em;
+            color: #555; /* gris foncé */
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+            gap: 20px;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .project {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #ccc; /* bordure grise pour contraste clair */
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .project:hover .overlay {
+            opacity: 1;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .footer-global {
+            margin-top: auto;
+            text-align: center;
+            padding: 1rem 0;
+            color: #555;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            padding: 1rem;
+            z-index: 1000;
+        }
+
+        .logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #47B5FF;
+            text-decoration: none;
+        }
+        .top-right-links {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 3;
+            display: flex;
+            gap: 15px;
+        }
+
+        .top-right-links a {
+            color: black;
+            text-decoration: none;
+            font-size: 0.95em;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .top-right-links a:hover {
+            border-color: #47B5FF;
+        }
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="index.html">
+            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo">
+        </a>
+    </header>
+
+    <div class="top-right-links">
+            <a href="apropos.html">En savoir plus</a>
+            <a href="contact.html">Contact</a>
+    </div>
+
+    <header>
+        <h1>Océane Magnière</h1>
+        <img src="images/swipitnoir.png" alt="Swipit Logo" style="width: 50px; max-width: 80%; margin-bottom: 0.5em;">
+    </header>
+
+    <!-- Lien retour vers PageChoix.html -->
+    <a href="index.html" class="back-link">Retour</a>
+
+    <section class="grid">
+        <a href="galerie-keypro.html#keypro-gallery" class="project">
+            <img src="images/JC.jpg" alt="Projet 1">
+            <div class="overlay">KeyPro</div>
+        </a>
+        <a href="galerie-harmonieconcept.html#harmonieconcept-gallery" class="project">
+            <img src="images/AC.jpg" alt="Projet 2">
+            <div class="overlay">Harmonie Concept</div>
+        </a>
+        <a href="galerie-leslunettesdemathilde.html" class="project">
+            <img src="images/M.jpg" alt="Projet 3">
+            <div class="overlay">Les Lunettes de Mathilde</div>
+        </a>
+    </section>
+
+    <footer class="footer-global">
+        © 2025 Swipit — Tous droits réservés
+    </footer>
+</body>
+</html>
