@@ -1,165 +1,184 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Les Lunettes de Mathilde - Galerie Vidéos</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f8f8f8; /* Fond clair */
-            color: #000; /* Texte noir */
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les Lunettes de Mathilde - Galerie Vidéos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      color: #000;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            padding: 1rem;
-            z-index: 1000;
-        }
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 1rem;
+      z-index: 1000;
+      background: #fff;
+      width: 100%;
+      box-sizing: border-box;
+    }
 
-        .logo {
-            height: 40px;
-            cursor: pointer;
-        }
+    .logo {
+      height: 40px;
+      cursor: pointer;
+    }
 
-        header h1, header h2 {
-            margin: 0;
-            text-align: center;
-        }
+    header h1 {
+      margin: 80px 0 10px 0;
+      text-align: center;
+      font-size: 2em;
+      font-weight: 400;
+    }
 
-        header {
-            padding-top: 80px;
-            padding-bottom: 20px;
-        }
+    .back-link {
+      display: block;
+      text-align: center;
+      margin: 0 auto 20px auto;
+      font-size: 0.9em;
+      font-style: italic;
+      color: #555;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: #47B5FF;
+      text-decoration: none;
+    }
 
-        h1 {
-            font-size: 2em;
-            font-weight: 400;
-        }
+    /* Grid container */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+      gap: 20px;
+      padding: 0 40px 40px 40px;
+      justify-content: center;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
 
-        h2 {
-            font-weight: normal;
-            font-size: 1.5em;
-            color: #444;
-            margin-top: 10px;
-        }
+    /* Each video container - ratio 9:16 */
+    .project {
+      position: relative;
+      width: 100%;
+      /* hauteur calculée pour ratio 9:16 */
+      padding-top: calc(100% * 16 / 9); 
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr); /* 3 colonnes fixes */
-            gap: 20px;
-            justify-content: center;
-            padding: 40px;
-        }
+    /* Vidéo et iframe prennent toute la place */
+    .project iframe,
+    .project video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      border-radius: 10px;
+      object-fit: cover; /* pour que la vidéo remplisse le cadre */
+    }
 
-        .project {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
+    /* Titre sous la vidéo */
+    .video-title {
+      margin-top: calc(100% * 16 / 9 + 8px); /* sous la vidéo */
+      font-size: 0.9em;
+      color: #333;
+      font-style: italic;
+      text-align: center;
+      width: 100%;
+    }
 
-        .project video {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
+    /* Footer */
+    .footer-global {
+      margin-top: auto;
+      text-align: center;
+      padding: 1rem 0;
+      color: #777;
+    }
 
-        .project iframe {
-            width: 100%;
-            height: 535px;
-            border-radius: 10px;
-            border: 1px solid #ccc;
-        }
+    /* Responsive : 1 colonne sur mobile */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 40px 20px;
+      }
 
-        .video-title {
-            margin-top: 8px;
-            font-size: 0.9em;
-            color: #333;
-            font-style: italic;
-            text-align: center;
-            width: 100%;
-        }
-
-        .footer-global {
-            margin-top: auto;
-            text-align: center;
-            padding: 1rem 0;
-            color: #777;
-        }
-
-        .back-link {
-            display: block;
-            text-align: center;
-            margin: 20px auto 0;
-            font-size: 0.9em;
-            font-style: italic;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: #47B5FF;
-            text-decoration: none;
-        }
-
-        @media (max-width: 1024px) {
-            .grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 colonnes sur tablettes */
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .grid {
-                grid-template-columns: 1fr; /* 1 colonne sur mobile */
-                padding: 20px;
-            }
-        }
-    </style>
+      .video-title {
+        margin-top: 8px; /* pour mobile */
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="header">
-        <a href="index.html">
-            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo" />
-        </a>
+  <div class="header">
+    <a href="index.html">
+      <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo" />
+    </a>
+  </div>
+
+  <header>
+    <h1>Les Lunettes de Mathilde</h1>
+  </header>
+
+  <a href="videos.html" class="back-link">Retour aux projets</a>
+
+  <section class="grid">
+    <div class="project">
+      <iframe
+        src="https://youtube.com/shorts/huJGy10poSs"
+        title="Concours - Les Lunettes de Mathilde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <div class="video-title">Jeu Concours | RayBan Meta</div>
     </div>
+    <div class="project">
+      <iframe
+        src="https://www.youtube.com/embed/ANA4wIpa5qk"
+        title="V1 Saint Valentin Mathilde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <div class="video-title">Saint Valentin</div>
+    </div>
+    <div class="project">
+      <iframe
+        src="https://youtube.com/shorts/BrSVrnLC5es"
+        title="Monture - Les Lunettes de Mathilde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <div class="video-title">Coulisses</div>
+    </div>
+    <div class="project">
+      <iframe
+        src="https://youtube.com/shorts/2YCtXxu-B2w?feature=share"
+        title="Brett - Les Lunettes de Mathilde"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+        referrerpolicy="strict-origin-when-cross-origin"
+      ></iframe>
+      <div class="video-title">Virée avec Brett</div>
+    </div>
+  </section>
 
-    <header>
-        <h1>Les Lunettes de Mathilde</h1>
-    </header>
-
-    <a href="videos.html" class="back-link">Retour aux projets</a>
-
-    <section class="grid">
-        <div class="project">
-            <iframe src="https://youtube.com/shorts/huJGy10poSs" title="Concours - Les Lunettes de Mathilde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="video-title">Jeu Concours | RayBan Meta</div>
-        </div>
-        <div class="project">
-            <iframe src="https://www.youtube.com/embed/ANA4wIpa5qk" title="V1 Saint Valentin Mathilde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="video-title">Saint Valentin</div>
-        </div>
-        <div class="project">
-            <iframe src="https://youtube.com/shorts/BrSVrnLC5es" title="Monture - Les Lunettes de Mathilde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="video-title">Coulisses</div>
-        </div>
-        <div class="project">
-            <iframe src="https://youtube.com/shorts/2YCtXxu-B2w?feature=share" title="Brett - Les Lunettes de Mathilde" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div class="video-title">Virée avec Brett</div>
-        </div>
-        <!-- Ajoute d'autres vidéos si besoin -->
-    </section>
-
-    <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
-
+  <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
 </body>
 </html>
