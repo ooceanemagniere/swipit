@@ -56,7 +56,7 @@
     /* Grid container */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       padding: 0 40px 40px 40px;
       justify-content: center;
@@ -68,8 +68,7 @@
     .project {
       position: relative;
       width: 100%;
-      /* hauteur calculée pour ratio 9:16 */
-      padding-top: calc(100% * 16 / 9); 
+      padding-top: calc(100% * 16 / 9); /* hauteur = largeur * 16/9 */
       border-radius: 10px;
       overflow: hidden;
       border: 1px solid #ccc;
@@ -88,12 +87,12 @@
       height: 100%;
       border: none;
       border-radius: 10px;
-      object-fit: cover; /* pour que la vidéo remplisse le cadre */
+      object-fit: cover;
     }
 
     /* Titre sous la vidéo */
     .video-title {
-      margin-top: calc(100% * 16 / 9 + 8px); /* sous la vidéo */
+      margin-top: 8px;
       font-size: 0.9em;
       color: #333;
       font-style: italic;
@@ -117,7 +116,7 @@
       }
 
       .video-title {
-        margin-top: 8px; /* pour mobile */
+        margin-top: 8px;
       }
     }
   </style>
