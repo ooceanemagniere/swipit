@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KeyPro - Galerie Photos</title>
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8;
-            color: #000;
+            background-color: #f8f8f8; /* fond clair */
+            color: #000; /* texte noir */
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -53,7 +53,7 @@
 
         .gallery img:hover {
             transform: scale(1.03);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .footer-global {
@@ -63,23 +63,7 @@
             color: #555;
         }
 
-        .back-link {
-            display: block;
-            text-align: center;
-            margin: 20px auto 0;
-            font-size: 0.9em;
-            font-style: italic;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: #47B5FF;
-        }
-
-        /* Lightbox CSS */
-
+        /* Lightbox */
         .lightbox {
             display: none;
             position: fixed;
@@ -98,5 +82,65 @@
             border-radius: 10px;
         }
 
-        /* Affiche la lightbox quand ciblée par l'ancre */
-        .lig
+        .lightbox:target {
+            display: flex;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #47B5FF;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="index.html">
+            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo">
+        </a>
+    </div>
+
+    <header>
+        <h1>KeyPro</h1>
+    </header>
+
+    <a href="photos.html" class="back-link">Retour aux projets</a>
+
+    <section class="gallery">
+        <a href="#img1"><img src="images/J.webp" alt="Photo 1"></a>
+        <a href="#img2"><img src="images/JC.webp" alt="Photo 2"></a>
+        <a href="#img3"><img src="images/C.webp" alt="Photo 3"></a>
+    </section>
+
+    <!-- Lightbox Images -->
+    <div id="img1" class="lightbox"><a href="#"><img src="images/J.webp" alt="Photo 1"></a></div>
+    <div id="img2" class="lightbox"><a href="#"><img src="images/JC.webp" alt="Photo 2"></a></div>
+    <div id="img3" class="lightbox"><a href="#"><img src="images/C.webp" alt="Photo 3"></a></div>
+
+    <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
+
+    <!-- Script pour désactiver le scroll au retour -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const observer = new MutationObserver(() => {
+                if (!document.querySelector('.lightboxOverlay')) {
+                    history.replaceState(null, null, ' ');
+                }
+            });
+            observer.observe(document.body, { childList: true, subtree: true });
+        });
+    </script>
+
+</body>
+</html>
