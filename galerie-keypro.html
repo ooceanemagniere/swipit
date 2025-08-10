@@ -8,8 +8,8 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f8f8f8; /* fond clair */
-            color: #000; /* texte noir */
+            background-color: #f8f8f8;
+            color: #000;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -63,7 +63,23 @@
             color: #555;
         }
 
+        .back-link {
+            display: block;
+            text-align: center;
+            margin: 20px auto 0;
+            font-size: 0.9em;
+            font-style: italic;
+            color: #555;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .back-link:hover {
+            color: #47B5FF;
+        }
+
         /* Lightbox CSS */
+
         .lightbox {
             display: none;
             position: fixed;
@@ -82,79 +98,5 @@
             border-radius: 10px;
         }
 
-        .lightbox:target {
-            display: flex;
-        }
-
-        .back-link {
-            display: block;
-            text-align: center;
-            margin: 20px auto 0;
-            font-size: 0.9em;
-            font-style: italic;
-            color: #555;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .back-link:hover {
-            color: #47B5FF;
-            text-decoration: none;
-        }
-
-        @media (max-width: 768px) {
-            .gallery {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="header">
-        <a href="index.html">
-            <img src="images/swipitnoir.png" alt="Logo Swipit" class="logo" />
-        </a>
-    </div>
-
-    <header>
-        <h1>KeyPro</h1>
-    </header>
-
-    <a href="photos.html" class="back-link">Retour aux projets</a>
-
-    <section class="gallery">
-        <a href="#img1"><img src="images/J.jpg" alt="Photo 1" /></a>
-        <a href="#img2"><img src="images/JC.jpg" alt="Photo 2" /></a>
-        <a href="#img3"><img src="images/C.png" alt="Photo 3" /></a>
-        <a href="#img4"><img src="images/photo4.jpg" alt="Photo 4" /></a>
-        <a href="#img5"><img src="images/photo5.jpg" alt="Photo 5" /></a>
-    </section>
-
-    <!-- Lightbox -->
-    <div id="img1" class="lightbox">
-        <a href="#"><img src="images/J.jpg" alt="Photo 1" /></a>
-    </div>
-    <div id="img2" class="lightbox">
-        <a href="#"><img src="images/JC.jpg" alt="Photo 2" /></a>
-    </div>
-    <div id="img3" class="lightbox">
-        <a href="#"><img src="images/C.png" alt="Photo 3" /></a>
-    </div>
-    <div id="img4" class="lightbox">
-        <a href="#"><img src="images/photo4.jpg" alt="Photo 4" /></a>
-    </div>
-    <div id="img5" class="lightbox">
-        <a href="#"><img src="images/photo5.jpg" alt="Photo 5" /></a>
-    </div>
-
-    <footer class="footer-global">© 2025 Swipit — Tous droits réservés</footer>
-
-</body>
-</html>
+        /* Affiche la lightbox quand ciblée par l'ancre */
+        .lig
