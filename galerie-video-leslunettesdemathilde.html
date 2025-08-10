@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #f8f8f8;
+      background-color: #ffffff;
       color: #000;
       min-height: 100vh;
       display: flex;
@@ -54,41 +54,44 @@
     }
 
     /* Grid container */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      padding: 0 40px 40px 40px;
-      justify-content: center;
-      box-sizing: border-box;
-      margin-top: 10px;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+  box-sizing: border-box;
+  margin: 20px auto 40px auto;
+  max-width: 960px; /* largeur max pour limiter l'étalement */
+  width: 90%;
+}
 
-    /* Each video container - ratio 9:16 */
-    .project {
-      position: relative;
-      width: 100%;
-      padding-top: calc(100% * 16 / 9); /* hauteur = largeur * 16/9 */
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid #ccc;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-    }
+/* Each video container - ratio 9:16 (format portrait) */
+.project {
+  position: relative;
+  width: 100%;
+  padding-top: calc(100% * 16 / 9); /* hauteur = largeur * 16/9 */
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #ddd; /* bordure plus claire et fine */
+  background: #000;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1); /* ombre légère pour le relief */
+  display: flex;
+  flex-direction: column;
+}
 
-    /* Vidéo et iframe prennent toute la place */
-    .project iframe,
-    .project video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-      border-radius: 10px;
-      object-fit: cover;
-    }
+/* Vidéo et iframe prennent toute la place */
+.project iframe,
+.project video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  object-fit: cover;
+}
 
     /* Titre sous la vidéo */
     .video-title {
